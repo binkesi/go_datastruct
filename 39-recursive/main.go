@@ -32,5 +32,6 @@ func PutQueen(row int) {
 }
 
 func main() {
+	// put chess from row 0.
 	PutQueen(0)
 }
