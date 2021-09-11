@@ -1,4 +1,4 @@
-package main
+package recursive
 
 import (
 	"fmt"
@@ -29,9 +29,4 @@ func PutQueen(row int) {
 			PutQueen(row + 1)
 		}
 	}
-}
-
-func main() {
-	// Put chess from row 0.
-	PutQueen(0)
 }
