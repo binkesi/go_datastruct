@@ -5,6 +5,7 @@ import "fmt"
 func PutStone(weight []int, col int) int {
 	row := len(weight)
 	state := [][]int{}
+	// init two-d array
 	for r := 0; r < row; r++ {
 		state = append(state, make([]int, col+1))
 	}
