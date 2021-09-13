@@ -4,16 +4,12 @@ import "fmt"
 
 func PutStone(weight []int, col int) int {
 	row := len(weight)
-	state := make([][]int, row)
-	for i := 0; i < row; i++ {
-		state[i][0] = 0
+	state := [][]int{}
+	for r := 0; r < row; r++ {
+		state = append(state, make([]int, col+1))
 	}
-	for j := 0; j <= col; j++ {
-		if j == weight[0] {
-			state[0][j] = 1
-		} else {
-			state[0][j] = 0
-		}
+	if weight[0] <= col {
+		state[0][weight[0]] = 1
 	}
 	for i := 1; i < row; i++ {
 		for j := 1; j <= col; j++ {
@@ -22,12 +18,14 @@ func PutStone(weight []int, col int) int {
 			} else {
 				state[i][j] = 0
 			}
-			fmt.Printf("%d row %d col value is %d", row, col, state[i][j])
 		}
+	}
+	for i := 0; i < row; i++ {
+		fmt.Printf("%v\n", state[i])
 	}
 	for k := col; k >= 0; k-- {
 		if state[row-1][k] == 1 {
-			fmt.Printf("max value is %d", k)
+			fmt.Printf("max value is %d\n", k)
 			return k
 		}
 	}
